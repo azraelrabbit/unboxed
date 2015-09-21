@@ -59,7 +59,7 @@ namespace Unboxed
                 {
                     var fileHeader = PeManager.FromBinaryReader<BOXED_FILE_HEADER>(reader);
                     reader.BaseStream.Seek(fileHeader.FileNamePos, SeekOrigin.Begin);
-                    var fileName = Encoding.Unicode.GetString(reader.ReadBytes((int) (fileHeader.Unknown1Pos - fileHeader.FileNamePos - 2)));
+                    //var fileName = Encoding.Unicode.GetString(reader.ReadBytes((int) (fileHeader.Unknown1Pos - fileHeader.FileNamePos - 2)));
                     reader.BaseStream.Seek(fileHeader.FilePathPos, SeekOrigin.Begin);
                     var filePath = Encoding.Unicode.GetString(reader.ReadBytes((int) (fileHeader.DataPos - fileHeader.FilePathPos - 2))).Replace("<ExeDir>\\", "");
                     reader.BaseStream.Seek(fileHeader.DataPos, SeekOrigin.Begin);
