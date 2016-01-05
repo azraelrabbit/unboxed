@@ -1,7 +1,4 @@
-# Use new Travis-CI infrastructure
 sudo: false
-
-# Source language
 language: csharp
 
 # Build the project
@@ -11,31 +8,11 @@ solution: Unboxed.sln
 after_success: "[[ $TRAVIS_PULL_REQUEST == false ]] && [[ $TRAVIS_REPO_SLUG == OxideMod/Unboxed ]] && [[ $TRAVIS_BRANCH == master ]] && ./deploy.sh"
 
 notifications:
-  # Disable build status email notifications, until the issue with forks is fixed
   email: false
-  # Slack (oxidemod.slack.com)
   slack:
     rooms:
-      secure: "Iu735aGV29qa3MclLIirGV2dygCx/HYjve6xe3dKY4aRIGkUOhxaIxF6faaB6J832y7B4
-        1fxKrQoe9Zek9xp/RmhTKCm5YWMZ/jxaKhyFT9SYK8tPTdh/HUfOGybzODRkZdn+vAB8aQSs7HKFqPAJ
-        vD09rt+XmNbBoabsn06jAtFEYHAF/cruvpdfmhAbXXgBU9O5m2k/gYw9MtQs0rEKay976umbCq7S4DjM
-        motixsxLF/24ykj1vPhYGByFJROOTjv27SnLJwXoi3LHWOwMJn6dm7I5oc0QUXF/aY01VAhXUMv04RK3
-        abENcbcr2t4ooKkDBw3BNCeQ3sA/cG/UB6EkG3v54Q2G8abwLpSQGEvBEhq8KQ1Ebhv3XFYCXFjIJsQD
-        c0QVoLuRbNVVsrID4nPq+UdN6gxY1aWg1hxCuojeM6vQnevp/TwtHCgCScH4SYqSbhm1+eQJU5dyy+mj
-        HQUtpbWMyx3U2opRmIwl2Sen7nEejyiVxYtrN13LSBVLRFwya2xyRfH96NBZLlho4Lj/kJmFscmVJ00o
-        L32VM3AW/hWRqF6xoNqvT2BXumJ2lKI7XVO7VYxmguNVA/cYSO7HyxsdJY6+h2NeE5FqWoxHTPOYEClu
-        mvMSFou3HuRnYQi9M9SUFv5XvAia6lcVM/Qg223zmqyk38bPBmwsrk="
+      secure: "mZ1T04D+XhMHkbIDX4gGflsNx2QitmvkbkJLBvHVCL/9fCPQuGAQk9CIyFfTqauFmTH4C+qYvq5F88ds0r4s2uqCC756lIw1R94R5/6beeTjql/zVluwBz9mZ6jfmiFhchds5yi9Rt3Z1fhkzC+bHDqE0LjQI+U1IePDa6IyPIq87sIJXhELmSWnSqvL8FGcYoPPMK42mylA6B0TofRjBqWh9pWwoF8anNBPHi5h+TeiPfWoQGiCKk/02yIDAxoxGMgs9yeOxwVT6N/53CExq38nF2F/2u11u3XYsn4oKK8WlILamGSs7gY8Qoel0+dbYkGEbjmFTdN76IxcFG133uHC1qOCIUwjT3NKXJV3xHXmO4VtTYR3FjqUqiuRazZP1HvmIw4rU3g8P8oQsM/86lED+r75zgNy0shVG2TGYXKVf1wZaf5RBiFaSJ7J4Owhn7qnqR2PIbeTyJObTjYur15rEsOLoZFWeqVNJ7R90CQnPWv5tJYRIpZPtFob4hrtDEYCEnlYQzuxMBEY1tawKtuWx8g0TcEyTvlYSFgzsZQFPOe9H+wqZB8Te7HADzNgD4lQOZXuRHJMTUHVmt3YUcvToEqFjkGTOytXjsU/2qzq7ebbM8lKg9vxPHfZKVxpYWSZF/pOLtI674e329tZ787wzXwCvjuzVq0raSCrAFM="
 
-# Environmental system variables
 env:
   global:
-    # Super secure, encrypted variables! Ssssh!
-    - secure: "KSN+c4FajTIGpj6TbSsjiieVtv5P5To2fHxd0bQV4F/OAapW2+HPw9nPsZ554GQQfKYga
-        EUhxWYjHRU32QHQ17Lfl9bqsRK/Dw5VAP9PdSzPyxdSkoP62w0KddbCMoPhLexUOoJgKqUHiIpN2rec8
-        aBEy21jOTsPXccY/g8a3pfRkDPhVyyE/KYLPlOiQKUlh73itmy4fSow/PngWDCI2h7Jm+W1/dL2W8tOm
-        elWC9Ol9xj57e76TLqfmH9/2gW/wU4RhDgwM3kckuYgeqSPHuZEKhbNdgG7kWTe4iQo+PBVHIeRRl5B4
-        0ZbmyU4EjBGkilK0z5FEkxTStHk+8zs2PrjtGUExz8+8RMMr2nVXbmBngbeA2Z6cc1FkoDDTZWhBT4Un
-        4QNIF4+xu5QcuSmCSJWJ1Yx1VmUPzLP0M8Bwu9RlqaNxhnBr5FrrYRq9oSqIS7/8RBFAiL4UveayutM5
-        9+VNdysjjAUhYWsHcHqFg0CxooRCptxNuJcFYC4Ffs3pN+49/JnCp7bj7pZMNSTCAUAU2Fx3WOGiHcn0
-        D/uacdZkjKqrlasnXeBVmLPZQepHZLFmumZBR+AdN8haMHOo1Izqbt8onD0T1tPlX4rta5+JbooXDO1E
-        sIlm5PuhjlMIezB3TndQhCkY9eihj/3CaSoVHPkQzHJFge0i18lR1s="
+    - secure: "bBfhulPJ45FOQETTMkcl0Johg0y3SdHqNOsyiK6sPj7hzdBiTsdeg3v/7jJkSZosAZqYjyKBU+wG4vBOTe7Qh3QAKQY9zKBC6WE4Qlo6bp3BfBa30wVdRSo0yC8z46GQZ0sfzHV46hIaSYZDXHBD37Vptq63ftu/X00a5PqOaBus5FPveoOXdLuZHKb2WvOXFHFbc6xMuvx16SammSPZ75rU9WsR3z0Zc20UCROTVaM+nVOW5VPR6SjFHdSgNJ3Y5IYzCNJvxXKCI/h4LxiCa8OrgRsF3reeUegUryhWSdAHsEqXpu7l617rlRN8ckDJRNugCtdRuGhoLH0AWpzpXyvNcQOz89Pce5q0ZR2zA+228IRC92udZxLsdsBCbpTFPF02Z0PQrTLV33i6VSbzK6G80KQAZ2zH/m9T75yDAEv25/wLIRhvC1iQ8c1DEjhBywUej6uD7+gp8TsMQk9x/G1BqUPD3Pab4bE8sDKO0eZKchfos7ZQdomkHBEd5Bq+YXz5lRsav1XCnqWUkkPcsordkevyVtvWnf1ytc2PYU11eHzmHYF0xeJqRuP/Y18K2KwhSBqYWfznlER+iwpmDOdIY498DgpZ+bZ+TcUhhnXPT4xPT3GBemOV3sYZCK7kB8Zp6lWwHDNYfOyiduiI6yjuy2AWOOxcQ4VbY5pMvvE="
