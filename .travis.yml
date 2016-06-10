@@ -1,17 +1,18 @@
-sudo: false
+sudo: required
+dist: trusty
 language: csharp
 
 # Build the project
 solution: Unboxed.sln
 
 # Run deployment script
-after_success: "[[ $TRAVIS_PULL_REQUEST == false ]] && [[ $TRAVIS_REPO_SLUG == OxideMod/Unboxed ]] && [[ $TRAVIS_BRANCH == master ]] && ./deploy.sh"
+after_success: "[[ $TRAVIS_REPO_SLUG == OxideMod/Unboxed ]] && [[ $TRAVIS_PULL_REQUEST == false ]] && [[ $TRAVIS_BRANCH == master ]] && ./deploy.sh"
 
 notifications:
   email: false
   slack:
     rooms:
-      secure: "mZ1T04D+XhMHkbIDX4gGflsNx2QitmvkbkJLBvHVCL/9fCPQuGAQk9CIyFfTqauFmTH4C+qYvq5F88ds0r4s2uqCC756lIw1R94R5/6beeTjql/zVluwBz9mZ6jfmiFhchds5yi9Rt3Z1fhkzC+bHDqE0LjQI+U1IePDa6IyPIq87sIJXhELmSWnSqvL8FGcYoPPMK42mylA6B0TofRjBqWh9pWwoF8anNBPHi5h+TeiPfWoQGiCKk/02yIDAxoxGMgs9yeOxwVT6N/53CExq38nF2F/2u11u3XYsn4oKK8WlILamGSs7gY8Qoel0+dbYkGEbjmFTdN76IxcFG133uHC1qOCIUwjT3NKXJV3xHXmO4VtTYR3FjqUqiuRazZP1HvmIw4rU3g8P8oQsM/86lED+r75zgNy0shVG2TGYXKVf1wZaf5RBiFaSJ7J4Owhn7qnqR2PIbeTyJObTjYur15rEsOLoZFWeqVNJ7R90CQnPWv5tJYRIpZPtFob4hrtDEYCEnlYQzuxMBEY1tawKtuWx8g0TcEyTvlYSFgzsZQFPOe9H+wqZB8Te7HADzNgD4lQOZXuRHJMTUHVmt3YUcvToEqFjkGTOytXjsU/2qzq7ebbM8lKg9vxPHfZKVxpYWSZF/pOLtI674e329tZ787wzXwCvjuzVq0raSCrAFM="
+      secure: "TMzZM9Ff3fHQ+o1f26N4QQ7MbGG82wQdzfeLJGJZie3aKHPbGYnHoff+6sUuq6SaL7nzXPy+GNoYP1uwmg9uNaTLTDTj9C1quqmaqLu6cBTc8sBtEK4/crP8m1f/r7b9xWsCMcqbQGZmQsJqHyi7pngcUTVjG3sGK8BjMSs3tk8JVTNM0sOGOE5s2LkPgYfRAytJbjSmYYVfPoVeEEDP4RuOgDwMS+OlMLsCEPw8ypovgez04r5Fs+OIVX4K37M2EIgfbH388y2jmaqJRSUD9+VU7gEU4rw5eNFYk6WZ4JhEsWQnftLJGBjezwOYLdqMi+llyxwF01DXM4eHATsbkHqN+apFi0wONzOMJBLxXcnVhMqn/+Ud9ecJ5Tvlp7ulB4HKsqfXOUKXn8i/5xYfmoKKg9r3Jw0cPVxkau4D7uqm+NytvsF3sspPZSQQQkWmJu0WTjiyvVGT16RjcxjtqvGH5b9O96BlL1/8EtYApjSdM+ifFIoZmHNjW2DfkR+cx5GZaCSGE3dkacvDRaJZuIwpFVrv/WmeEYdHHI3lmCO85/THqNQLcbfVOljAIMz639V8E2QeVpnC7IkvWx/MfAI8X83I6BAqpajubmtXaA58BatqeBuWz8XmVc9eKjNBe7FdSLs5WMxyP8whwkzHC5TbxjFUJmPp/NQQp/I8r2Q="
 
 env:
   global:
